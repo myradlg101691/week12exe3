@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        h1 {
+            font-family: 'Lobster', cursive;
+            font-size: 40px;
+            color: black;
+        }
+
+        body {
+            background: linear-gradient(to right, red 0%, lightpink 100%);
+            color: white;
+        }
+
+        .tableclass {
+            border: solid black 8px;
+        }
+
+        img {
+            width: 350px;
+            height: auto;
+            border-radius: 3rem;
+        }
+
+        a:link,
+        a:visited {
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table class="tableclass">
+        <tr>
+            <td colspan="2">
+                <h1>Currency Converter</h1>
+                <p><strong>Convert USA Dollars to other currencies.</strong></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td><img src="coins.jpg"></td>
+            <td>
+                <form name="theform">
+                    <table>
+                        <tr>
+                            <td style="float: right"><strong>Enter USA dollar amount:</strong></td>
+                            <td><input name="usaDollarAmountFm" size="10"><br></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Euro:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="euroFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Pound sterling:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;"  id="poundFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Austrailian Dollar:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="australianFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Mexican Peso:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="mexicanFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Canadian Dollar:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="canadianFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Turkish lira:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="turkishFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Japanese yen:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="japaneseFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Swiss franc:</strong></td>
+                            <td style="background-color: white; color: black; font-weight: bold;" id="swissFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2"><input type="button" name="calc" value="Calculate" onClick="calculate();">
+                                <input type="button" name="clear" value="Clear" onClick="clearinfo();">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        document.theform.usaDollarAmountFm.focus();
+
+        function calculate() {
+
+            const usaDollar2 = 1.00;
+            const euro2 = 0.84;
+            const pound2 = 0.77;
+            const australian2 = 1.40;
+            const mexican2 = 20.86;
+            const canadian2 = 1.31;
+            const turkish2 = 7.96;
+            const japanese2 = 104.76;
+            const swiss2 = 0.90;
+
+            var usaDollar;
+            var euro;
+            var pound;
+            var australian;
+            var mexican;
+            var canadian;
+            var turkish;
+            var japanese;
+            var swiss;
+
+            
+            usaDollar = parseFloat(document.theform.usaDollarAmountFm.value);
+
+            
+            euro = parseFloat(usaDollar * euro2);
+            pound = parseFloat(usaDollar * pound2);
+            australian = parseFloat(usaDollar * australian2);
+            mexican = parseFloat(usaDollar * mexican2);
+            canadian = parseFloat(usaDollar * canadian2);
+            turkish = parseFloat(usaDollar * turkish2);
+            japanese = parseFloat(usaDollar * japanese2);
+            swiss = parseFloat(usaDollar * swiss2);
+
+            document.getElementById("euroFmOutput").innerHTML = "$ " + euro.toFixed(2);
+            document.getElementById("poundFmOutput").innerHTML = "$ " + pound.toFixed(2);
+            document.getElementById("australianFmOutput").innerHTML = "$ " + australian.toFixed(2);
+            document.getElementById("mexicanFmOutput").innerHTML = "$ " + mexican.toFixed(2);
+            document.getElementById("canadianFmOutput").innerHTML = "$ " + canadian.toFixed(2);
+            document.getElementById("turkishFmOutput").innerHTML = "$ " + turkish.toFixed(2);
+            document.getElementById("japaneseFmOutput").innerHTML = "$ " + japanese.toFixed(2);
+            document.getElementById("swissFmOutput").innerHTML = "$ " + swiss.toFixed(2);
+
+        }
+
+        function clearinfo() {
+            document.theform.usaDollarAmountFm.value = " ";
+            document.getElementById("euroFmOutput").innerHTML = " ";
+            document.getElementById("poundFmOutput").innerHTML = " ";
+            document.getElementById("australianFmOutput").innerHTML = " ";
+            document.getElementById("mexicanFmOutput").innerHTML = " ";
+            document.getElementById("canadianFmOutput").innerHTML = " ";
+            document.getElementById("turkishFmOutput").innerHTML = " ";
+            document.getElementById("japaneseFmOutput").innerHTML = " ";
+            document.getElementById("swissFmOutput").innerHTML = " ";
+
+            document.theform.usaDollarAmountFm.focus();
+        }
+    </script>
+
+    <p>
+    <a href="http://csnet.southtexascollege.edu/localuser/mdelag10/">Go Back to HOMEPAGE</a><br></p>
+ <p>Myra De La Garza</p>
+
+</body>
+
+</html>
